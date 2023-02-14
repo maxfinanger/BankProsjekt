@@ -51,7 +51,7 @@ public class Terminal {
             int balance = balances.get(username);
 
             switch (bankChoice) {
-                case 1 -> {System.out.println("Din saldo er " + balance + " kr.");}
+                case 1 -> System.out.println("Din saldo er " + balance + " kr.");
                 case 2 -> {
                     System.out.println("Din saldo er " + balance + " kr.");
                     System.out.println("Hvor mye ønsker du å sette inn?");
@@ -95,9 +95,9 @@ public class Terminal {
                     System.out.println("Du har logget ut!");
                     return;
                 }
-                default -> {
+                default ->
                     System.out.println("Velg et av terminal valgene.");
-                }
+
             }
         }
     }
