@@ -93,7 +93,10 @@ public class Terminal {
                 }
                 case 5 -> {
                     System.out.println("Du har logget ut!");
-                    mainMenu();
+                    return;
+                }
+                default -> {
+                    System.out.println("Velg et av terminal valgene.");
                 }
             }
         }
