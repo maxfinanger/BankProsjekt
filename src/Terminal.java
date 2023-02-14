@@ -16,8 +16,10 @@ public class Terminal {
 
         this.users.put("maxfin", "1234");
         this.users.put("heltve", "4321");
+        this.users.put("frehyl", "6969");
         this.balances.put("maxfin", 1000000);
         this.balances.put("heltve", 1000);
+        this.balances.put("frehyl", 1000000);
     }
 
     public void addOption(String value) {
@@ -111,7 +113,7 @@ public class Terminal {
     public static void mainMenu() {
         Terminal terminal = new Terminal();
 
-        terminal.info("Terminal", "Vi oppretter 2 meny-valg");
+        terminal.info("Bank Terminal", "Velg Alternativ");
 
         terminal.addOption("Logg inn");
         terminal.addOption("Avslutt");
