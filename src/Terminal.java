@@ -79,13 +79,30 @@ public class Terminal {
                     break;
 
                 case 4:
-
-                    bankTransactions(username);
+                    System.out.println("Din saldo er " + balance);
+                    System.out.println("Hvor mye ønsker du å overføre?");
+                    int transferAmount = input.nextInt();
+                    System.out.println("Skriv inn mottakerens brukernavn:");
+                    String recipient = input.next();
+                    if (transferAmount <= balance) {
+                        int recipientBalance = balances.get(recipient);
+                        balance -= transferAmount;
+                        recipientBalance += transferAmount;
+                        balances.put(username, balance);
+                        balances.put(recipient, recipientBalance);
+                        System.out.println("Du har overført " + transferAmount + " kr til " + recipient);
+                        System.out.println("Ny balanse for sender er " + balance + " kr");
+                        System.out.println("Ny balanse for motaker er " + recipientBalance + " kr");
+                        bankTransactions(username);
+                    } else {
+                        System.out.println("Du har ikke nok penger på kontoen din");
+                        bankTransactions(username);
+                    }
                     break;
 
                 case 5:
                     System.out.println("Du har logget ut!");
-
+                    mainMenu();
                     break;
             }
         }
