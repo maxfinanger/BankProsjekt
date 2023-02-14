@@ -27,6 +27,7 @@ public class Terminal {
     }
 
     public void displayMainMenu() {
+        System.out.println("\n ----------------------");
         for (int i = 0; i < this.options.size(); i ++) {
             System.out.println((i + 1) + ". " + this.options.get(i));
         }
@@ -51,9 +52,9 @@ public class Terminal {
             int balance = balances.get(username);
 
             switch (bankChoice) {
-                case 1 -> System.out.println("Din saldo er " + balance + " kr.");
+                case 1 -> System.out.println("\nDin saldo er " + balance + " kr.");
                 case 2 -> {
-                    System.out.println("Din saldo er " + balance + " kr.");
+                    System.out.println("\nDin saldo er " + balance + " kr.");
                     System.out.println("Hvor mye ønsker du å sette inn?");
                     int deposit = input.nextInt();
                     balance += deposit;
@@ -61,7 +62,7 @@ public class Terminal {
                     System.out.println("Din saldo er nå " + balance + " kr.");
                 }
                 case 3 -> {
-                    System.out.println("Din saldo er " + balance + " kr.");
+                    System.out.println("\nDin saldo er " + balance + " kr.");
                     System.out.println("Hvor mye ønsker du å ta ut?");
                     int withdrawl = input.nextInt();
                     if (withdrawl <= balance) {
@@ -73,7 +74,7 @@ public class Terminal {
                     }
                 }
                 case 4 -> {
-                    System.out.println("Din saldo er " + balance + " kr.");
+                    System.out.println("\nDin saldo er " + balance + " kr.");
                     System.out.println("Hvor mye ønsker du å overføre?");
                     int transferAmount = input.nextInt();
                     System.out.println("Skriv inn mottakerens brukernavn:");
@@ -88,16 +89,14 @@ public class Terminal {
                         System.out.println("Ny balanse for sender er " + balance + " kr.");
                         System.out.println("Ny balanse for motaker er " + recipientBalance + " kr.");
                     } else {
-                        System.out.println("Du har ikke nok penger på kontoen din.");
+                        System.out.println("\nDu har ikke nok penger på kontoen din.");
                     }
                 }
                 case 5 -> {
-                    System.out.println("Du har logget ut!");
+                    System.out.println("\nDu har logget ut!");
                     return;
                 }
-                default ->
-                    System.out.println("Velg et av terminal valgene.");
-
+                default -> System.out.println("\nVelg et av terminal valgene.");
             }
         }
     }
@@ -114,25 +113,25 @@ public class Terminal {
 
         switch (choice) {
             case 1 -> {
-                System.out.println("Vennligst skriv inn brukernavnet:");
+                System.out.println("\nVennligst skriv inn brukernavnet:");
                 String username = input.next();
                 if (users.containsKey(username)) {
-                    System.out.println("Vennligst skriv inn pinkoden:");
+                    System.out.println("\nVennligst skriv inn pinkoden:");
                     String pinCode = input.next();
                     if (users.get(username).equals(pinCode)) {
-                        System.out.println("Velkommen!");
+                        System.out.println("\nVelkommen!");
                         bankTransactions(username);
                     } else {
-                        System.out.println("Feil pinkode");
+                        System.out.println("\nFeil pinkode");
                         mainMenu();
                     }
                 } else {
-                    System.out.println("Feil brukernavn");
+                    System.out.println("\nFeil brukernavn");
                     mainMenu();
                 }
             }
-            case 2 -> System.out.println("Takk for ditt besøk, ha en fin dag!");
-            default -> System.out.println("Vær så snill, velg et av valgene");
+            case 2 -> System.out.println("\nTakk for ditt besøk, ha en fin dag!");
+            default -> System.out.println("\nVær så snill, velg et av valgene");
         }
     }
 }
