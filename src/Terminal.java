@@ -7,7 +7,6 @@ public class Terminal {
     private static Scanner input;
     public static HashMap<String, String> users;
     public static HashMap<String, Integer> balances;
-    static boolean loginSuccess = false;
 
     public Terminal() {
         this.options = new ArrayList<>();
@@ -59,6 +58,7 @@ public class Terminal {
                     System.out.println("Hvor mye ønsker du å sette inn?");
                     int deposit = input.nextInt();
                     balance += deposit;
+                    balances.put(username, balance);
                     System.out.println("Din saldo er nå " + balance + " kr.");
                     bankTransactions(username);
                     break;
@@ -69,6 +69,7 @@ public class Terminal {
                     int withdrawl = input.nextInt();
                     if (withdrawl <= balance){
                         balance -= withdrawl;
+                        balances.put(username, balance);
                         System.out.println("Din saldo er nå " + balance + " kr.");
                         bankTransactions(username);
                     }
@@ -127,7 +128,6 @@ public class Terminal {
                     String pinCode = input.next();
                     if (users.get(username).equals(pinCode)) {
                         System.out.println("Velkommen!");
-                        boolean loginSuccess = true;
                         bankTransactions(username);
 
                     } else {
