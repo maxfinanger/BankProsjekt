@@ -13,13 +13,6 @@ public class Terminal {
         input = new Scanner(System.in);
         users = new HashMap<>();
         balances = new HashMap<>();
-
-        users.put("maxfin", "1234");
-        users.put("heltve", "4321");
-        users.put("frehyl", "6969");
-        balances.put("maxfin", 1000000);
-        balances.put("heltve", 1000);
-        balances.put("frehyl", 1000000);
     }
 
     public void addOption(String value) {
@@ -39,6 +32,8 @@ public class Terminal {
 
     public static void bankTransactions(String username) {
         Terminal transactions = new Terminal();
+        MiniBank miniBank = new MiniBank();
+        miniBank.accounts();
 
         transactions.addOption("Vis saldo");
         transactions.addOption("Sett inn penger");
@@ -102,6 +97,8 @@ public class Terminal {
     }
     public static void mainMenu() {
         Terminal terminal = new Terminal();
+        MiniBank miniBank = new MiniBank();
+        miniBank.accountHolders();
 
         terminal.info("Bank Terminal", "Velg Alternativ");
 

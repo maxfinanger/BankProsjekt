@@ -1,0 +1,23 @@
+maxfin
+debit account
+100000
+
+maxfin
+savings account
+10000000000
+
+heltve
+debit account
+10
+
+heltve
+savings account
+100000
+
+frehyl
+debit account
+100000
+
+frehyl
+savings account
+10000000000
